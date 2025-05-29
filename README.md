@@ -1,3 +1,5 @@
+data bisa di download di sini : https://github.com/riodpp/taxi-pipeline/tree/main/data
+
 ===================== BATCH PIPELINE =====================
 1. Buat docker-compose.yaml
     + edit file docker-compose.yaml
