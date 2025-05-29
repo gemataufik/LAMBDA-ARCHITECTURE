@@ -1,0 +1,14 @@
+dbt-bigquery==1.7.9
+apache-airflow==2.9.1
+apache-airflow-providers-google==10.15.0
+google-cloud-bigquery==3.22.0
+google-cloud-core==2.4.1
+
+
+apache-beam[gcp]==2.56.0
+google-cloud-pubsub==2.21.0
+google-cloud-bigquery==3.22.0
+google-auth==2.29.0
+Faker==18.9.0
+
+

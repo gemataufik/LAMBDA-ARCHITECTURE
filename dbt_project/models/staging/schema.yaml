@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+  - name: jdeol003_capstone3_gema
+    database: purwadika 
+    schema: jdeol003_capstone3_gema 
+    tables:
+      - name: taxi_data
+      - name: payment_type
+      - name: taxi_zone_lookup
+
+models:
+  - name: trip_taxi_transform
+    description: "Transformasi data trip_taxi"
+    columns:
+      - name: trip_id
+        description: "Pengidentifikasi unik untuk setiap perjalanan"
+      - name: trip_day
+        description: "tanggal perjalanan"
+      - name: passenger_count
+        description: "Jumlah penumpang"
+      - name: trip_distance_km
+        description: "Jarak perjalanan diubah menjadi kilometer"
+      - name: congestion_surcharge
+        description: "Biaya tambahan kemacetan diterapkan pada perjalanan"
+      - name: store_and_fwd_flag
+        description: "Store and forward flag"
+      - name: improvement_surcharge
+        description: "Biaya tambahan perbaikan"
+      - name: total_amount
+        description: "Total amount paid for the trip"
+      - name: trip_type
+        description: "Type of the trip"
+      - name: payment_type
+        description: "jenis pembayaran"
+      - name: mta_tax
+        description: "MTA tax applied"
+      - name: do_location_id
+        description: "Drop-off location ID"
+      - name: lpep_pickup_datetime
+        description: "Pickup datetime"
+      - name: extra
+        description: "Extra charges"
+      - name: vendor_id
+        description: "Vendor label (Grab/Citra)"
+      - name: tolls_amount
+        description: "Tolls paid"
+      - name: ehail_fee
+        description: "E-hailing fee"
+      - name: ratecode_id
+        description: "Rate code"
+      - name: tip_amount
+        description: "Tips paid"
+      - name: fare_amount
+        description: "Fare amount"
+      - name: pu_location_id
+        description: "Pickup location ID"
+      - name: lpep_dropoff_datetime
+        description: "Drop-off datetime"
+      - name: trip_duration_second
+        description: "Duration of the trip in menit"
+
+  - name: taxi_zone_lookup_transform
+    description: "Master data zona lokasi taksi"
+    columns:
+      - name: location_id
+        description: "ID lokasi"
+      - name: borough
+        description: "Wilayah administratif"
+      - name: zone
+        description: "Nama zona"
+      - name: service_zone
+        description: "Zona layanan"
+      
+     

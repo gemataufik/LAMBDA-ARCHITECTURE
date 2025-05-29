@@ -1,0 +1,14 @@
+dbt_project:
+  outputs:
+    dev:
+      dataset: jdeol003_capstone3_gema
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /opt/airflow/keys/purwadika-key.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: purwadika
+      threads: 2
+      type: bigquery
+  target: dev

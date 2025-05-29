@@ -1,0 +1,5 @@
+=== Buat topic di pubsub ===
+gcloud pubsub topics create capstone3_topic_gema
+
+=== Buat subscriptions di pubsub ===
+gcloud pubsub subscriptions create --topic capstone3_topic_gema capstone3_subscriptions_gema
