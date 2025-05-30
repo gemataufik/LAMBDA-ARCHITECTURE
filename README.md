@@ -4,11 +4,15 @@ note :
     + tambahkan data .csv yang sudah di download di folder data
         - yang di masukan ke folder data hanya folder json, csv dan payment_type.csv, taxi_zone_lookup.csv
     + kredensial (GCP key) simpen di folder keys
-    + khusus streaming
+    + streaming
         - simpan kredensial GCP key di folder streaming dengan nama purwadika-key.json (sesuai nama file kamu)
         - di publisher.py set os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "purwadika-key.json" (atau nama key.json kamu)
+    + requirements
+        - install di lokal (.venv)
+    + pertama kali masuk web UI airflow buat connections
+        - /opt/airflow/keys/purwadika-key.json (atau nama key.json kamu)
 
-===================== BATCH PIPELINE =====================
+================================== BATCH PIPELINE ==================================
 1. Buat docker-compose.yaml
     + edit file docker-compose.yaml
         - tambahkan keys dan data di volumes (mount ke container)
@@ -17,7 +21,9 @@ note :
     + docker-compose up airflow-init (jalankan ini sekali saat di awal)
     + docker-compose up
 
-2. Buat connections di web UI airflow
+2. Buat connections 
+    + di web UI airflow (manual)
+    + jika ingin otomatis tambahkan di setiap enveronment di docker-compose.yml(airflow-webserver, airflow-scheduler, airflow-worker, airflow-triggerer, airflow-init)
 
 3. Fungsi file upload_to_gcs_dag.py (DAG)
     + menggabungkan data dari folder csv dan json (data preparation)
@@ -55,7 +61,7 @@ note :
     + load ke biguery
 
 
-===================== STREAMING PIPELINE =====================
+================================== STREAMING PIPELINE ==================================
 1. Buat Pub/Sub
     + Buat topic
     + Buat Subcriptions

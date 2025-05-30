@@ -137,6 +137,9 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    environment:
+      <<: *airflow-common-env
+      AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: google-cloud-platform://?key_path=/opt/airflow/keys/purwadika-key.json&project=purwadika&scope=https://www.googleapis.com/auth/cloud-platform  
 
   airflow-scheduler:
     <<: *airflow-common
@@ -152,6 +155,10 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    environment:
+      <<: *airflow-common-env
+      AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: google-cloud-platform://?key_path=/opt/airflow/keys/purwadika-key.json&project=purwadika&scope=https://www.googleapis.com/auth/cloud-platform
+
 
   airflow-worker:
     <<: *airflow-common
@@ -170,6 +177,7 @@ services:
       # Required to handle warm shutdown of the celery workers properly
       # See https://airflow.apache.org/docs/docker-stack/entrypoint.html#signal-propagation
       DUMB_INIT_SETSID: "0"
+      AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: google-cloud-platform://?key_path=/opt/airflow/keys/purwadika-key.json&project=purwadika&scope=https://www.googleapis.com/auth/cloud-platform
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
@@ -190,6 +198,10 @@ services:
       <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
+    environment:
+      <<: *airflow-common-env
+      AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: google-cloud-platform://?key_path=/opt/airflow/keys/purwadika-key.json&project=purwadika&scope=https://www.googleapis.com/auth/cloud-platform
+
 
   airflow-init:
     <<: *airflow-common
@@ -251,6 +263,7 @@ services:
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
       _PIP_ADDITIONAL_REQUIREMENTS: ''
+      AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: google-cloud-platform://?key_path=/opt/airflow/keys/purwadika-key.json&project=purwadika&scope=https://www.googleapis.com/auth/cloud-platform
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
