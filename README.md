@@ -9,8 +9,6 @@ note :
         - di publisher.py set os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "purwadika-key.json" (atau nama key.json kamu)
     + requirements
         - install di lokal (.venv)
-    + pertama kali masuk web UI airflow buat connections
-        - /opt/airflow/keys/purwadika-key.json (atau nama key.json kamu)
 
 ================================== BATCH PIPELINE ==================================
 1. Buat docker-compose.yaml
