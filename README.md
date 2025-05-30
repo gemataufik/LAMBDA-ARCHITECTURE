@@ -1,11 +1,21 @@
 data bisa di download di sini : https://github.com/riodpp/taxi-pipeline/tree/main/data
 
+note :
+    + tambahkan data .csv yang sudah di download di folder data
+        - yang di masukan ke folder data hanya folder json, csv dan payment_type.csv, taxi_zone_lookup.csv
+    + kredensial (GCP key) simpen di folder keys
+    + khusus streaming
+        - simpan kredensial GCP key di folder streaming dengan nama purwadika-key.json (sesuai nama file kamu)
+        - di publisher.py set os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "purwadika-key.json" (atau nama key.json kamu)
+
 ===================== BATCH PIPELINE =====================
 1. Buat docker-compose.yaml
     + edit file docker-compose.yaml
         - tambahkan keys dan data di volumes (mount ke container)
     + di folder keys menambahkan file untuk Google Cloud credentials
     + buat UID
+    + docker-compose up airflow-init (jalankan ini sekali saat di awal)
+    + docker-compose up
 
 2. Buat connections di web UI airflow
 
